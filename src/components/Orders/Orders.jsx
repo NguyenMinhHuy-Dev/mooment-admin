@@ -149,9 +149,9 @@ export const Orders = () => {
                 </div> 
                 </div> */}
 
-                <div className='body-section'  style={{position: 'relative', height: '100%'}}> 
+                <div className='body-section'  style={{position: 'relative', height: 'calc(100% - 20px)'}}> 
                     <DataGrid
-                        getRowId={(row) => row._id}
+                        getRowId={(row) => row._id} 
                         rowHeight={80}
                         rows={rows}
                         columns={columns}

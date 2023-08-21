@@ -144,6 +144,7 @@ export const Products = () => {
             <div className='body-section'> 
                 <DataGrid
                   rows={rows}
+                  rowHeight={50}
                   columns={columns}
                   initialState={{
                     pagination: {
