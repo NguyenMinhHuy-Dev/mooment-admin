@@ -4,21 +4,9 @@ import StarRoundedIcon from '@mui/icons-material/StarRounded';
 
 export const OrdersTable = ({data, cate, products}) => {
     const [topCate, setTopCate] = useState([]); 
-    const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState(0); 
 
-    const getData = async () => {
-        await fetch(process.env.REACT_APP_API_URL + '/products')
-        .then((res) => res.json())
-        .then((res) => {  
-            
-        })
-        .catch((err) => {
-            
-        })  
-    }
-
-    useEffect(() => { 
-
+    useEffect(() => {  
         const countTopCate = async () => {
             const array = [];
             for (let i = 0 ; i < cate.length ; i++) {
@@ -37,7 +25,7 @@ export const OrdersTable = ({data, cate, products}) => {
             await setTopCate([...array.slice(0, 3)])  
         }
         countTopCate();
-    }, [data])
+    })
 
     return (
         <div className='orders-table'>
