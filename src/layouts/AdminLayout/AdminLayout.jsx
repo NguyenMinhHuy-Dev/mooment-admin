@@ -12,8 +12,7 @@ export const AdminLayout = () => {
 
   useEffect(() => {
     if (sessionStorage.length === 0) {
-      navigate("/auth");
-      console.log('fu')
+      navigate("/auth"); 
     }
     else if (sessionStorage.getItem('isAuth') === 'false' ) {
       navigate("/auth");
