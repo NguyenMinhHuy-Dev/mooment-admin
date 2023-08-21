@@ -11,10 +11,14 @@ export const AdminLayout = () => {
   const [isOpenNav, setIsOpenNav] = useState(true);
 
   useEffect(() => {
-    if (sessionStorage.getItem('isAuth') === 'false') {
+    if (sessionStorage.length === 0) {
+      navigate("/auth");
+      console.log('fu')
+    }
+    else if (sessionStorage.getItem('isAuth') === 'false' ) {
       navigate("/auth");
     } 
-    if (JSON.parse(sessionStorage.user).role === 1) {
+    else if (JSON.parse(sessionStorage.user).role === 1) {
       navigate("/shipper");
     } 
   }, []);
