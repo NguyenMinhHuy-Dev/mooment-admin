@@ -28,7 +28,7 @@ export const Dashboard = () => {
         const sum = await array.reduce((accumulator, object) => { 
             return accumulator + object.sum; 
         }, 0);
-        await setTotal(sum);
+        await setTotal(sum); 
         await setTopCate([...array.slice(0, 3)])  
     }
     useEffect(() => {
@@ -69,7 +69,7 @@ export const Dashboard = () => {
     }, [])
     useEffect(() => {
       countTopCate();
-    }, [products, category])
+    }, [products, category, data])
   return (
     <div className='dashboard'>
       <OrderWidgets data={data}/>
