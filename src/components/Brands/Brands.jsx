@@ -167,10 +167,6 @@ export const Brands = () => {
         }
     }, [selected])
 
-    useEffect(() => {
-        console.log(listCategory);
-    }, [listCategory])
-
     return (
         <div className='section category-section'>
             {loading ? (

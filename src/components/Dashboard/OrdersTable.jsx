@@ -6,26 +6,27 @@ export const OrdersTable = ({data, cate, products}) => {
     const [topCate, setTopCate] = useState([]); 
     const [total, setTotal] = useState(0); 
 
-    useEffect(() => {  
-        const countTopCate = async () => {
-            const array = [];
-            for (let i = 0 ; i < cate.length ; i++) {
-                const sum = products.reduce((accumulator, object) => {
-                    if (object.category._id === cate[i]._id)
-                        return accumulator + (Number(object.sold) * Number(object.salePrice));
-                    return accumulator + 0;
-                }, 0);
-                array.push({name: cate[i].name, sum}); 
-            }  
-            await array.sort((a, b) => b.sum - a.sum);
-            const sum = await array.reduce((accumulator, object) => { 
-                return accumulator + object.sum; 
+    const countTopCate = async () => {
+        const array = [];
+        for (let i = 0 ; i < cate.length ; i++) {
+            const sum = products.reduce((accumulator, object) => {
+                if (object.category._id === cate[i]._id)
+                    return accumulator + (Number(object.sold) * Number(object.salePrice));
+                return accumulator + 0;
             }, 0);
-            await setTotal(sum);
-            await setTopCate([...array.slice(0, 3)])  
-        }
+            array.push({name: cate[i].name, sum}); 
+        }  
+        await array.sort((a, b) => b.sum - a.sum);
+        const sum = await array.reduce((accumulator, object) => { 
+            return accumulator + object.sum; 
+        }, 0);
+        await setTotal(sum);
+        await setTopCate([...array.slice(0, 3)])  
+    }
+
+    useEffect(() => {   
         countTopCate();
-    })
+    }, [topCate])
 
     return (
         <div className='orders-table'>

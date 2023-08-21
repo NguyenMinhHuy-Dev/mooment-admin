@@ -128,10 +128,6 @@ export const Orders = () => {
         getData();
     }, []) 
 
-    useEffect(() => {
-        console.log(order);
-    }, [order])
-
     return (
         <div className='section product-section'>
         {loading ? (
