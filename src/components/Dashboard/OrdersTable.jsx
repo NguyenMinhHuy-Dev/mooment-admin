@@ -57,8 +57,8 @@ export const OrdersTable = ({data, cate, products}) => {
                                     <span style={{display: 'flex',fontSize: '13px', alignItems: 'center',  fontWeight: '600', justifyContent: 'center'}}><StarRoundedIcon style={{color: '#f1c40f',  marginRight: '5px',}} />({item.rated ? item.rated : '0'})</span>
                                 </td>
                                 <td align='center'>
-                                    <span style={{width: '100%', fontSize: '13px', padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px', color: '#000', fontWeight: '700',backgroundColor: `${item.status === 0 ? '#8e44ad' : '#f1c40f'}`}}> 
-                                        {item.status === 0 ? 'Mới' : item.status === 1 ? 'Đang xử lý' : item.status === 2 ? 'Đang vận chuyển' : item.status === 3 ? 'Thành công' : 'Hủy'}
+                                    <span style={{width: '100%', fontSize: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '7px 10px', borderRadius: '10px', color: '#000', fontWeight: '700',backgroundColor: `${item.status === 0 ? '#e84393' : item.status === 1 ? '#f1c40f' : item.status === 2 ? '#9b59b6' : '#fff'}`}}>
+                                        {item.status === 0 ? 'Mới' : item.status === 1 ? 'Đang xử lý' : item.status === 2 ? 'Đang giao' : item.status === 3 ? 'Thành công' : 'Hủy'}
                                     </span>
                                 </td>
                                 <td align='right'>

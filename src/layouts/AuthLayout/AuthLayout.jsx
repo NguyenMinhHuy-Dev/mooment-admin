@@ -44,10 +44,15 @@ export const AuthLayout = () => {
       else if (data.role === 0) {
         setError("Tài khoản không có quyền truy cập!");
       }
-      else {
-        sessionStorage.setItem('user', data);
+      else if (data.role !== 1) {
+        sessionStorage.setItem('user', JSON.stringify(data));
         sessionStorage.setItem('isAuth', true);
         navigate("/")
+      }
+      else {
+        sessionStorage.setItem('user', JSON.stringify(data));
+        sessionStorage.setItem('isAuth', true);
+        navigate("/shipper")
       }
       setLoading(false);
     })

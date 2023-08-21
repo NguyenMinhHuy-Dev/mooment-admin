@@ -14,6 +14,9 @@ export const AdminLayout = () => {
     if (sessionStorage.getItem('isAuth') === 'false') {
       navigate("/auth");
     } 
+    if (JSON.parse(sessionStorage.user).role === 1) {
+      navigate("/shipper");
+    } 
   }, []);
 
   return ( 
